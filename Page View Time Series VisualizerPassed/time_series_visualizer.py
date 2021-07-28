@@ -14,10 +14,10 @@ def draw_line_plot():
     # Draw line plot
     fig = plt.figure(figsize = (16, 5))
     plt.plot(df, 'r')
-    plt.title("Daily freeCodeCamp Forum Page Views 5/2016-12/2019") # title
-    plt.xlabel("Date") # x label
+    plt.title("Daily freeCodeCamp Forum Page Views 5/2016-12/2019")
+    plt.xlabel("Date")
     plt.xticks(range(0, len(df), len(df) // 7))
-    plt.ylabel("Page Views") # y label
+    plt.ylabel("Page Views")
 
     # Save image and return fig (don"t change this part)
     fig.savefig("line_plot.png")
