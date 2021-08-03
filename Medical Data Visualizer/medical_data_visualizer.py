@@ -3,8 +3,6 @@ import seaborn as sns
 import matplotlib.pyplot as plt
 import numpy as np
 
-pd.options.mode.chained_assignment = None
-
 # Import data
 df = pd.read_csv("medical_examination.csv")
 
@@ -19,14 +17,14 @@ df['overweight'] = overweight
 # Normalize data by making 0 always good and 1 always bad. If the value of 'cholesterol' or 'gluc' is 1, make the value 0. If the value is more than 1, make the value 1.
 for i in range(len(df)):
     if(df['cholesterol'][i] == 1):
-        df['cholesterol'][i] = 0
+        df.at[i, 'cholesterol'] = 0
     else:
-        df['cholesterol'][i] = 1
+        df.at[i, 'cholesterol'] = 1
         
     if(df['gluc'][i] == 1):
-        df['gluc'][i] = 0
+        df.at[i, 'gluc'] = 0
     else:
-        df['gluc'][i] = 1
+        df.at[i, 'gluc'] = 1
 
 def draw_cat_plot():
     # Create DataFrame for cat plot using `pd.melt` using just the values from 'cholesterol', 'gluc', 'smoke', 'alco', 'active', and 'overweight'.
